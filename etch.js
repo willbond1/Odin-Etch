@@ -6,7 +6,8 @@ function removeAllChildren(parentNode) {
 }
 
 function drawGrid(sideLength) {
-    removeAllChildren(gridContainer);
+    if(gridContainer.firstChild)
+        removeAllChildren(gridContainer);
 
     for(let i = 0; i < sideLength; i++) {
         let newRow = document.createElement("div");
@@ -20,11 +21,11 @@ function drawGrid(sideLength) {
 
         gridContainer.appendChild(newRow);
     }
+
+    const gridElems = document.querySelectorAll(".grid-elem");
+    gridElems.forEach(ge => ge.addEventListener("mouseover", function(e) {
+        this.classList.add("hover");
+    }));
 }
 
 drawGrid(16);
-
-const gridElems = document.querySelectorAll(".grid-elem");
-gridElems.forEach(ge => ge.addEventListener("mouseover", function(e) {
-    this.classList.add("hover");
-}));
