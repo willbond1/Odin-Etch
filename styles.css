@@ -1,16 +1,25 @@
 body {
-    padding: 0;
-    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #grid-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    height: 700px;
+    width: 700px;
+}
+
+.grid-row {
+    display: flex;
+    flex: 1;
 }
 
 .grid-elem {
     border: 2px solid red;
     flex: 1;
-    min-height: 20vw;
-    min-width: 20vw;
+}
+
+.hover {
+    background-color: black;
 }

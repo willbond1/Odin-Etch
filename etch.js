@@ -1,6 +1,30 @@
 const gridContainer = document.querySelector("#grid-container");
-for(let i = 0; i < 16; i++) {
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("grid-elem");
-    gridContainer.appendChild(newDiv);
+
+function removeAllChildren(parentNode) {
+    while(parentNode.firstChild)
+        parentNode.removeChild(parentNode.firstChild);
 }
+
+function drawGrid(sideLength) {
+    removeAllChildren(gridContainer);
+
+    for(let i = 0; i < sideLength; i++) {
+        let newRow = document.createElement("div");
+        newRow.classList.add("grid-row");
+
+        for(let i = 0; i < sideLength; i++) {
+            let newElem = document.createElement("div");
+            newElem.classList.add("grid-elem");
+            newRow.appendChild(newElem);
+        }
+
+        gridContainer.appendChild(newRow);
+    }
+}
+
+drawGrid(16);
+
+const gridElems = document.querySelectorAll(".grid-elem");
+gridElems.forEach(ge => ge.addEventListener("mouseover", function(e) {
+    this.classList.add("hover");
+}));
