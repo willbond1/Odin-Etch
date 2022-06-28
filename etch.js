@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector("#grid-container");
 const resizeButton  = document.querySelector("button#resize");
+const clearButton   = document.querySelector("button#clear");
 
 function removeAllChildren(parentNode) {
     while(parentNode.firstChild)
@@ -32,7 +33,13 @@ function drawGrid(sideLength) {
 }
 
 drawGrid(16);
+
 resizeButton.addEventListener("click", () => {
     let newSideLen = parseInt(prompt("Enter the new grid size (max 100):"));
     drawGrid(newSideLen);
+});
+
+clearButton.addEventListener("click", () => {
+    const gridElems = document.querySelectorAll(".grid-elem");
+    gridElems.forEach(ge => ge.classList.remove("hover"));
 });
