@@ -1,0 +1,12 @@
+
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-elem {
+    border: 2px solid red;
+    flex: 1;
+    min-height: 20vw;
+    min-width: 20vw;
+}
